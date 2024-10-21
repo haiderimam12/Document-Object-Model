@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Object Literals
+        const user = {
+            username: "haider",
+            loginCount: 2,
+            SignIn: true,
+            getUserDetais: function () {
+                console.log("Got Details");
+            }
+        }
+        console.log(user.getUserDetais());
+        console.log(user.username);
+
+        function User(username, loginCount, SignIn) {
+            this.username = username;
+            this.loginCount = loginCount;
+            this.SignIn = SignIn;
+
+            return this
+        }
+
+        const userOne = new User("haider", 2, true)
+        const userTwo = new User("imam", 3, false)
+
+        console.log(userOne.constructor);
+        console.log(userTwo.constructor);
+
+    </script>
+</body>
+
+</html>

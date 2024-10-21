@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: white;">
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="img">
+            <li><img style="height: 200px; width: 320px;" src="ps1.jpg"  id="ps1" alt="Error"></li>
+            <li><img style="height: 200px; width: 320px;" src="ps2.png"   id="ps2" alt="Error"></li>
+            <li><img style="height: 200px; width: 320px;" src="ps3.jpg"   id="ps3" alt="Error"></li>
+            <li><img style="height: 200px; width: 320px;" src="ps4.jpg"   id="ps4" alt="Error"></li>
+            <li><a style="color: skyblue;" href="https://www.google.com" target="_blank">Google</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // document.getElementById("ps3").onclick = function () {
+        //     alert("ps3 clicked")
+        // }
+
+        // attachedEvent()
+        // jQeury - on
+        // type, timestamp, defaultPrevented
+        // target, toElement, srcElement, currentTarget
+        // clientX. clientY, screenX, screenY
+
+        // document.getElementById("img").addEventListener('click', function(e){
+        //     console.log("clicked inside the ul");
+            
+        // })
+
+        // document.getElementById("ps3").addEventListener('click', function(e){
+        //     console.log("ps3 clicked");
+        //     e.stopPropagation()
+        // })
+
+        // document.getElementById('google').addEventListener
+        // ('click', function(e){
+        //     e.preventDefault()
+        //     e.stopPropagation
+        //     console.log('google clicked');
+            
+        // }, false)
+
+        document.querySelector('#img').addEventListener('click', function(e){
+            console.log(e.target.tagName);
+            if (e.target.tagName === 'IMG') {
+                console.log(e.target.id);
+                let removeit = e.target.parentNode
+                removeit.remove()
+                
+            }
+            // removeit.parentNode.removeChild(removeit)
+        })
+
+    </script>
+</body>
+</html>

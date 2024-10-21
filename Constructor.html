@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        class user {
+            constructor(username, email, password) {
+                this.username = username;
+                this.email = email;
+                this.password = password
+            }
+
+            encryptPassword() {
+                return `${this.password}abc`
+            }
+            chngname() {
+                return `${this.username.toUpperCase()}`
+            }
+            chngemail() {
+                return `${this.email.toLowerCase()}`
+            }
+        }
+
+        const haider = new user("imam", "Imam@.com", "123")
+        // console.log(haider.encryptPassword());
+        // console.log(haider.chngname());
+        // console.log(haider.chngemail());
+
+        // behind the scene
+
+        function User(username, email, password) {
+            this.username = username;
+            this.email = email;
+            this.password = password
+        }
+
+        User.prototype.encryptPassword = function () {
+            return `${this.password}abc`
+        }
+        User.prototype.chngname = function () {
+            return `${this.username.toUpperCase()}`
+        }
+
+        const mohd = new User("imam", "Imam@.com", "123")
+
+        // console.log(mohd.encryptPassword());
+        // console.log(mohd.chngname());
+
+
+        // Inheritance
+
+        class Users {
+            constructor(userName) {
+                this.userName = userName
+            }
+
+            logMe() {
+                // console.log(`UserName is ${this.userName}`);
+
+            }
+        }
+
+        class Teachers extends Users {
+            constructor(userName, email, password) {
+                super(userName)
+                this.email = email,
+                    this.password = password
+            }
+            addcourse() {
+                // console.log(`A new course added ${this.userName}`);
+
+            }
+        }
+
+        const haider1 = new Teachers('haider', 'haider123@.com', 'abcde')
+        // haider1.addcourse();
+
+        const tea = new Users("mohd")
+        // tea.logMe()
+
+        // console.log(tea === haider1);
+        // console.log(tea === Users);
+        // console.log(tea === Teachers);
+        // console.log(haider1 === Users);
+        // console.log(haider1 === Teachers);
+        // console.log(tea instanceof Users);
+        // console.log(tea instanceof Teachers);
+        // console.log(haider1 instanceof Teachers);
+
+        // Static properties
+
+        class UserOne {
+            constructor(username) {
+                this.username = username
+            }
+
+            logMe() {
+                console.log(`username: ${this.username}`);
+            }
+
+            static createID() {
+                return `123`
+            }
+        }
+
+        const haiderimam = new UserOne("haiderimam")
+        // console.log(haiderimam.createID());
+
+        class TeacherOne extends UserOne {
+            constructor(username, email) {
+                super(username)
+                this.email = email
+            }
+        }
+
+        const mohd_haider = new TeacherOne("mohd_imam", "mohd123@.com")
+        mohd_haider.logMe()        
+
+    </script>
+</body>
+
+</html>

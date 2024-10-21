@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const descpt = Object.getOwnPropertyDescriptor(Math, "PI");
+        console.log(descpt);
+
+        // console.log(Math.PI);
+
+        const myobj = {
+            name: "cycle",
+            price: "5000",
+
+            order: function () {
+                console.log("not delivered");
+            },
+        };
+
+        // console.log(Object.getOwnPropertyDescriptor(myobj, "name"));
+
+        Object.defineProperty(myobj, "name", {
+            // writable: false,
+            enumerable: false,
+        });
+        // console.log(Object.getOwnPropertyDescriptor(myobj, "name"));
+
+        for (const [key, value] of Object.entries(myobj)) {
+            if (typeof value !== "function") {
+                console.log(`${key}: ${value}`);
+            }
+        }
+    </script>
+</body>
+
+</html>

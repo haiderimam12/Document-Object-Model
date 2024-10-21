@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Properties of Get/Set through object
+        function User(email, password) {
+            this._email = email;
+            this._password = password
+
+            Object.defineProperty(this, 'email', {
+                get: function () {
+                    return this._email.toUpperCase()
+                },
+                set: function (value) {
+                    this._email = value
+                }
+            })
+            Object.defineProperty(this, 'password', {
+                get: function () {
+                    return this._password.toUpperCase()
+                },
+                set: function (value) {
+                    this._password = value
+                }
+            })
+        }
+
+        const chai = new User("chai@chai.com", "chai")
+
+        console.log(chai.email);
+
+        // Properties of Get/Set through class
+
+        class Users {
+            constructor(email, password) {
+                this.email = email;
+                this.password = password
+            }
+
+            get email() {
+                return this._email.toUpperCase()
+            }
+            set email(value) {
+                this._email = value
+            }
+
+            get password() {
+                return `${this._password}haider`
+            }
+
+            set password(value) {
+                this._password = value
+            }
+        }
+
+        const haider = new Users("h@ider.ai", "abc")
+        console.log(haider.email);
+
+        const UserOne = {
+            _email: 'h@ider.com',
+            _password: "abc",
+
+
+            get email() {
+                return this._email.toUpperCase()
+            },
+
+            set email(value) {
+                this._email = value
+            }
+        }
+
+        const tea = Object.create(UserOne)
+        console.log(tea.email);
+    </script>
+</body>
+
+</html>
